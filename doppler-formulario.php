@@ -19,7 +19,6 @@ function scripts_bootstrap()
     wp_enqueue_style('bootstrapCSS', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css');
     wp_enqueue_script('bootstrapJS', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js', array('jquery'), '', true);
 }
-add_action('wp_enqueue_scripts', 'scripts_bootstrap');
 
 // Agregar el menú y la página de configuración
 function menu_formulario_doppler()
@@ -142,6 +141,7 @@ function formulario_doppler_html()
         // Llama a la función form_doppler() para procesar la suscripción
         form_doppler();
     }
+    add_action('wp_enqueue_scripts', 'scripts_bootstrap');
     // Mostrar el formulario solo cuando se solicita el shortcode
     ob_start();
 ?>
